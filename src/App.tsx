@@ -1,13 +1,22 @@
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import GlobalStyle from "./styles/globalStyles";
 
+import Details from "./pages/Details";
+import Home from "./pages/Home";
+import Idontknowyet from "./pages/Idontknowyet";
 
-
-const App = () => {
+function App() {
   return (
-    <div>
+    <>
       <GlobalStyle />
-      <p>Hello Weather</p>
-    </div>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/details" element={<Details />} />
+          <Route path="/Idontknowyet" element={<Idontknowyet />} />
+        </Routes>
+      </Router>
+    </>
   );
 }
 
