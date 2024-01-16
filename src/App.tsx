@@ -1,13 +1,22 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import GlobalStyle from "./styles/globalStyles";
 
+import styled from "styled-components";
 import Details from "./pages/Details";
 import Home from "./pages/Home";
 import Idontknowyet from "./pages/Idontknowyet";
 
-function App() {
+const AppContainer = styled.div`
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content:center;
+`;
+
+const App = () => {
   return (
-    <>
+    <AppContainer>
       <GlobalStyle />
       <Router>
         <Routes>
@@ -16,7 +25,7 @@ function App() {
           <Route path="/Idontknowyet" element={<Idontknowyet />} />
         </Routes>
       </Router>
-    </>
+    </AppContainer>
   );
 }
 
