@@ -1,7 +1,7 @@
+/* globalStyles.js */
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
-    
     * {
         box-sizing: border-box;
         padding: 0;
@@ -14,12 +14,9 @@ const GlobalStyles = createGlobalStyle`
         font-weight: 400;
         font-size: 62.5%;
         height: 100vh;
+        width: 100vw;
         color: white;
         background-color: #1e213a;
-    }
-    #root {
-        display: flex;
-        justify-content: center;
     }
     h1 {
         margin: 1.5rem;
