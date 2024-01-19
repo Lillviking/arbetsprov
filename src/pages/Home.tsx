@@ -23,8 +23,6 @@ const Home = () => {
   const [latitude, setLatitude] = useState<number>(62.39);
   const [longitude, setLongitude] = useState<number>(17.3);
 
-  const [weatherSymbol, setWeatherSymbol] = useState<number>(1);
-  const [temperatureValue, setTemperatureValue] = useState<number>(0);
   const weatherContext = useContext(WeatherDataContext);
 
   const formatWeatherData = (data: any) => {
@@ -52,38 +50,59 @@ const Home = () => {
         const data = await response.json();
         const formattedData = formatWeatherData(data);
 
+        console.log(formattedData, "formattedData");
+
         // set context data
         if (weatherContext) {
           const chosenWeatherParameters = {
-            temperatureValue: formattedData.t.value,
-            weatherSymbol: formattedData.Wsymb2.value,
+            temperature: {
+              value: formattedData.t.value,
+              unit: formattedData.t.unit,
+            },
+            weatherSymbol: {
+              value: formattedData.Wsymb2.value,
+              unit: formattedData.Wsymb2.unit,
+            },
+            windSpeed: {
+              value: formattedData.ws.value,
+              unit: formattedData.ws.unit,
+            },
+            windDirection: {
+              value: formattedData.wd.value,
+              unit: formattedData.wd.unit,
+            },
+            relativeHumidity: {
+              value: formattedData.r.value,
+              unit: formattedData.r.unit,
+            },
+            precipitationCategory: {
+              value: formattedData.pcat.value,
+              unit: formattedData.pcat.unit,
+            },
           };
 
           weatherContext?.setWeatherData(chosenWeatherParameters);
         }
-
-        setWeatherSymbol(weatherContext?.weatherData?.weatherSymbol || 1);
-        setTemperatureValue(weatherContext?.weatherData?.temperatureValue || 0);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
     };
 
     fetchData();
-  });
+  }, [latitude, longitude]);
 
   return (
     <>
       <Card>
         {" "}
-        <h1>SUNDSVALL</h1>
-        <WeatherIconGenerator icon={weatherSymbol} />
-        <h1>{temperatureValue}°C</h1>
+        <h1>Sundsvall</h1>
+        <WeatherIconGenerator icon={weatherContext?.weatherData?.weatherSymbol.value || 1} />
+        <h1>{weatherContext?.weatherData?.temperature.value || 0}°C</h1>
         <Link to="/details">
-          <StyledButton>DETALJERAD VÄDERINFORMATION</StyledButton>
+          <StyledButton>Vädret i detalj</StyledButton>
         </Link>
         <Link to="/Idontknowyet">
-          <StyledButton>BYT PLATS</StyledButton>
+          <StyledButton>Byt plats</StyledButton>
         </Link>
       </Card>
 
