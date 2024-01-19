@@ -13,7 +13,7 @@ const StyledCard = styled.div`
   margin: 1rem;
   padding: 1rem;
   width: 30rem;
-  height: 70%;
+  height: 35rem;
   color: #363535;
 `;
 
