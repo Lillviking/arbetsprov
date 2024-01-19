@@ -5,7 +5,8 @@ import styled from "styled-components";
 import { WeatherDataProvider } from "./context/WeatherDataContext";
 import Details from "./pages/Details";
 import Home from "./pages/Home";
-import Idontknowyet from "./pages/Idontknowyet";
+import ChangePlace from "./pages/ChangePlace";
+import { CoordinateDataProvider } from "./context/PositionContext";
 
 const AppContainer = styled.div`
   width: 100vw;
@@ -20,14 +21,16 @@ const App = () => {
     <AppContainer>
       <GlobalStyle />
       <WeatherDataProvider>
+        <CoordinateDataProvider>
         {" "}
         <Router>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/details" element={<Details />} />
-            <Route path="/Idontknowyet" element={<Idontknowyet />} />
+            <Route path="/changePlace" element={<ChangePlace />} />
           </Routes>
         </Router>
+        </CoordinateDataProvider>
       </WeatherDataProvider>
     </AppContainer>
   );
