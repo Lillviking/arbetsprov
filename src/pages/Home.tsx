@@ -103,7 +103,7 @@ const Home = () => {
           <Link to="/details">
             <GlobalButton>Vädret i detalj</GlobalButton>
           </Link>
-          <Link to="/Idontknowyet">
+          <Link to="/changePlace">
             <GlobalButton>Byt plats</GlobalButton>
           </Link>
         </FlexContainerRow>
