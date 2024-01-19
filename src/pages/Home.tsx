@@ -4,6 +4,7 @@ import styled from "styled-components";
 import Card from "../components/card";
 import WeatherIconGenerator from "../components/weatherIconGenerator";
 import { WeatherDataContext } from "../context/WeatherDataContext";
+import { FlexContainerRow, GlobalButton } from "../styles/globalStyleComponents";
 
 const StyledButton = styled.button`
   color: #363535;
@@ -98,12 +99,14 @@ const Home = () => {
         <h1>Sundsvall</h1>
         <WeatherIconGenerator icon={weatherContext?.weatherData?.weatherSymbol.value || 1} />
         <h1>{weatherContext?.weatherData?.temperature.value || 0}°C</h1>
-        <Link to="/details">
-          <StyledButton>Vädret i detalj</StyledButton>
-        </Link>
-        <Link to="/Idontknowyet">
-          <StyledButton>Byt plats</StyledButton>
-        </Link>
+        <FlexContainerRow>
+          <Link to="/details">
+            <GlobalButton>Vädret i detalj</GlobalButton>
+          </Link>
+          <Link to="/Idontknowyet">
+            <GlobalButton>Byt plats</GlobalButton>
+          </Link>
+        </FlexContainerRow>
       </Card>
 
       <Outlet />
