@@ -19,8 +19,8 @@ const GlobalStyles = createGlobalStyle`
         background-color: #1e213a;
     }
     h1 {
-        margin: 1.5rem;
-        font-size: 3rem;
+        margin: 1.5rem 0;
+        font-size: 2.5rem;
         letter-spacing: 0.2rem;
         line-height: 1.1;
     }
@@ -28,6 +28,12 @@ const GlobalStyles = createGlobalStyle`
         margin: 0.5rem;
         font-size: 1.2rem;
     }
+
+    td {
+        font-size: 1.2rem;
+    }
+
+
 `;
 
 export default GlobalStyles;
