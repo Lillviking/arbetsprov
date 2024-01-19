@@ -12,7 +12,7 @@ const StyledCard = styled.div`
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   margin: 1rem;
   padding: 1rem;
-  width: 30%;
+  width: 30rem;
   height: 70%;
   color: #363535;
 `;
