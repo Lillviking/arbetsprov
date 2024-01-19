@@ -2,8 +2,12 @@ import React, { ReactNode, createContext, useState } from "react";
 
 // Skapa en typ för din data
 export type WeatherDataType = {
-  temperatureValue: number;
-  weatherSymbol: number;
+  temperature: { value: number | null; unit: string | null };
+  weatherSymbol: { value: number | null; unit: string | null };
+  windSpeed: { value: number | null; unit: string | null };
+  windDirection: { value: number | null; unit: string | null };
+  relativeHumidity: { value: number | null; unit: string | null };
+  precipitationCategory: { value: number | null; unit: string | null };
 };
 
 // Skapa en kontext med en tom initial state
