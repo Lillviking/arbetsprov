@@ -2,6 +2,8 @@ import { useContext } from "react";
 import Card from "../components/card";
 import { WeatherDataContext } from "../context/WeatherDataContext";
 import styled from "styled-components";
+import { GlobalButton } from "../styles/globalStyleComponents";
+import { Link } from "react-router-dom";
 
 const Table = styled.table`
 border-spacing: 1.2rem;
@@ -73,6 +75,8 @@ const Details = () => {
                 </tbody>
               </Table>
             </div>
+            <Link to="/"><GlobalButton>&laquo; Tillbaka</GlobalButton></Link>
+            
           </Card>
         );
       };
