@@ -33,52 +33,51 @@ const getCategoryTranslation = (category: number) => {
 
 const Details = () => {
   const context = useContext(WeatherDataContext);
-  
+
   if (!context || !context.weatherData) {
     return <div>Ingen väderinformation tillgänglig</div>;
   }
 
   const { weatherData } = context;
 
-        return (
-          <Card>
-            <div>
-              <h1>Vädret i detalj</h1>
-              <Table>
-                <tbody>
-                  <tr>
-                    <TableCell textAlign="left">Temperatur:</TableCell>
-                    <TableCell>{weatherData?.temperature.value}{" "}°C</TableCell>
-                  </tr>
-                  <tr>
-                    <TableCell textAlign="left">Vindhastighet:</TableCell>
-                    <TableCell>
-                      {weatherData?.windSpeed.value} {weatherData?.windSpeed.unit}
-                    </TableCell>
-                  </tr>
-                  <tr>
-                    <TableCell textAlign="left">Vindriktning:</TableCell>
-                    <TableCell>{weatherData?.windDirection.value}°</TableCell>
-                  </tr>
-                  <tr>
-                    <TableCell textAlign="left">Relativ luftfuktighet:</TableCell>
-                    <TableCell>
-                      {weatherData?.relativeHumidity.value}{" "}%
-                    </TableCell>
-                  </tr>
-                  <tr>
-                    <TableCell textAlign="left">Typ av nederbörd:</TableCell>
-                    <TableCell>
-                      {getCategoryTranslation(weatherData?.precipitationCategory?.value || 0)} 
-                    </TableCell>
-                  </tr>
-                </tbody>
-              </Table>
-            </div>
-            <Link to="/"><GlobalButton>&laquo; Tillbaka</GlobalButton></Link>
-            
-          </Card>
-        );
-      };
+  return (
+    <Card>
+      <h1>Vädret i detalj</h1>
+      <Table>
+        <tbody>
+          <tr>
+            <TableCell textAlign="left">Temperatur:</TableCell>
+            <TableCell>{weatherData?.temperature.value}{" "}°C</TableCell>
+          </tr>
+          <tr>
+            <TableCell textAlign="left">Vindhastighet:</TableCell>
+            <TableCell>
+              {weatherData?.windSpeed.value} {weatherData?.windSpeed.unit}
+            </TableCell>
+          </tr>
+          <tr>
+            <TableCell textAlign="left">Vindriktning:</TableCell>
+            <TableCell>{weatherData?.windDirection.value}°</TableCell>
+          </tr>
+          <tr>
+            <TableCell textAlign="left">Relativ luftfuktighet:</TableCell>
+            <TableCell>
+              {weatherData?.relativeHumidity.value}{" "}%
+            </TableCell>
+          </tr>
+          <tr>
+            <TableCell textAlign="left">Typ av nederbörd:</TableCell>
+            <TableCell>
+              {getCategoryTranslation(weatherData?.precipitationCategory?.value || 0)}
+            </TableCell>
+          </tr>
+        </tbody>
+      </Table>
+
+      <Link to="/"><GlobalButton>&laquo; Tillbaka</GlobalButton></Link>
+
+    </Card>
+  );
+};
 
 export default Details; 
