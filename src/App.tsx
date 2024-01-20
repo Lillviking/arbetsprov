@@ -6,7 +6,7 @@ import { WeatherDataProvider } from "./context/WeatherDataContext";
 import Details from "./pages/Details";
 import Home from "./pages/Home";
 import ChangePlace from "./pages/ChangePlace";
-import { CoordinateDataProvider } from "./context/PositionContext";
+import { CoordinateDataProvider } from "./context/CoordinateDataContext";
 
 const AppContainer = styled.div`
   width: 100vw;
