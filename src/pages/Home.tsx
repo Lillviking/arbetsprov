@@ -5,6 +5,7 @@ import Card from "../components/card";
 import WeatherIconGenerator from "../components/weatherIconGenerator";
 import { WeatherDataContext } from "../context/WeatherDataContext";
 import { FlexContainerRow, GlobalButton } from "../styles/globalStyleComponents";
+import { CoordinateDataContext } from "../context/CoordinateDataContext";
 
 const StyledButton = styled.button`
   color: #363535;
@@ -20,11 +21,14 @@ interface Parameter {
 }
 
 const Home = () => {
-  // lat long for Sundsvall
-  const [latitude, setLatitude] = useState<number>(62.39);
-  const [longitude, setLongitude] = useState<number>(17.3);
-
   const weatherContext = useContext(WeatherDataContext);
+  const coordinateContext = useContext(CoordinateDataContext);
+  console.log(coordinateContext, "coordinateContext in home");
+
+  const coordinates = {
+    latitude: coordinateContext?.coordinateData.latitude || 62.38,
+    longitude: coordinateContext?.coordinateData.longitude || 17.30,
+  }
 
   const formatWeatherData = (data: any) => {
     const parameters = data.timeSeries[0].parameters as Parameter[];
@@ -44,14 +48,12 @@ const Home = () => {
     const fetchData = async () => {
       try {
         // fetch weather data from SMHI
-        const endPoint = `https://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/${longitude.toFixed(
+        const endPoint = `https://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/${coordinates.longitude.toFixed(
           6
-        )}/lat/${latitude.toFixed(6)}/data.json`;
+        )}/lat/${coordinates.latitude.toFixed(6)}/data.json`;
         const response = await fetch(endPoint);
         const data = await response.json();
         const formattedData = formatWeatherData(data);
-
-        console.log(formattedData, "formattedData");
 
         // set context data
         if (weatherContext) {
@@ -90,13 +92,12 @@ const Home = () => {
     };
 
     fetchData();
-  }, [latitude, longitude]);
+  }, [coordinateContext?.coordinateData.latitude, coordinateContext?.coordinateData.longitude]);
 
   return (
     <>
       <Card>
-        {" "}
-        <h1>Sundsvall</h1>
+        <h1>{coordinateContext.coordinateData.name}</h1>{" "}
         <WeatherIconGenerator icon={weatherContext?.weatherData?.weatherSymbol.value || 1} />
         <h1>{weatherContext?.weatherData?.temperature.value || 0}°C</h1>
         <FlexContainerRow>
