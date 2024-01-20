@@ -1,10 +1,37 @@
 import { MapContainer, TileLayer, useMapEvents } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
+import { useContext } from "react";
+import { CoordinateDataContext } from "../context/CoordinateDataContext";
+import { CoordinateDataType } from "../context/CoordinateDataContext";
 
 export const Map = () => {
-    const handleMapClick = (e: any) => {
+    const coordinateDataContext = useContext(CoordinateDataContext);
+
+    const handleMapClick = async (e: any) => {
         const { lat, lng } = e.latlng;
-        console.log(`Latitude: ${lat}, Longitude: ${lng}`);
+        const coordinates: CoordinateDataType = {
+            latitude: lat,
+            longitude: lng,
+        };
+
+        // Utför omvänd geokodning här
+        const url = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`;
+        try {
+            const response = await fetch(url);
+            const data = await response.json();
+            console.log(data, "data");
+
+            const cityName = data.address.city || data.address.town || 'Unknown location';
+            coordinates.name = cityName; // Lägg till namnet på staden till koordinaterna
+        } catch (error) {
+            console.error('Error fetching reverse geocode data:', error);
+            coordinates.name = 'Error retrieving location'; // Hantera fel
+        }
+
+        console.log(lat, lng, "lat, lng");
+
+        coordinateDataContext?.setCoordinateData(coordinates);
+
     };
 
     const MapClickEvents = () => {
