@@ -1,19 +1,12 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { Link, Outlet } from "react-router-dom";
-import styled from "styled-components";
 import Card from "../components/card";
 import WeatherIconGenerator from "../components/weatherIconGenerator";
 import { WeatherDataContext } from "../context/WeatherDataContext";
 import { FlexContainerRow, GlobalButton } from "../styles/globalStyleComponents";
 import { CoordinateDataContext } from "../context/CoordinateDataContext";
 
-const StyledButton = styled.button`
-  color: #363535;
-  margin-top: 5%;
-  font-size: 1.2rem;
-  padding: 0.5rem 1rem;
-  margin: 0.5rem;
-`;
+
 interface Parameter {
   name: string;
   values: number[];
