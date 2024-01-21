@@ -1,46 +1,53 @@
-# Getting Started with Create React App
+# VÄDERAPPLIKATION
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Kort om applikationen
+Denna applikation visar väderdata från SMHI. På förstasidan visas vädret i Sundsvall med temperatur och matchande väderikon. Genom att klicka på en knapp kan användaren navigera till en sida med mer detaljerad väderinformation. På förstasidan finns även möjligheten att ändra plats genom att klicka på "byt plats" och välja en ny plats på kartan. När användaren återvänder till förstasidan kommer platsnamnet och väderinformationen att uppdateras.
 
-## Available Scripts
-
-In the project directory, you can run:
+## Tillgängliga skript
+I projektkatalogen kan du köra följande:
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Kör applikationen i utvecklingsläge.\
+Öppna [http://localhost:3000](http://localhost:3000) i webbläsaren för att se den.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Sidan kommer att uppdateras vid ändringar.\
+Du kommer också att se eventuella lint-fel i konsolen.
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Startar testköraren i interaktivt läge.\
+Se avsnittet om [att köra tester](https://facebook.github.io/create-react-app/docs/running-tests) för mer information.
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Bygger applikationen för produktion i `build`-mappen.\
+Den paketerar React korrekt i produktionsläge och optimerar bygget för bästa prestanda.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Bygget minifieras och filnamnen inkluderar hash-värden.\
+Din applikation är redo att distribueras!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Se avsnittet om [distribution](https://facebook.github.io/create-react-app/docs/deployment) för mer information.
 
 ### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+**Observera: detta är en engångsoperation. När du `eject` kan du inte ångra det!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Om du inte är nöjd med byggverktyget och konfigurationsvalen kan du köra `eject` när som helst. Detta kommando tar bort den enskilda byggberoendet från ditt projekt.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Istället kommer det att kopiera alla konfigurationsfiler och de transitiva beroendena (webpack, Babel, ESLint, etc) direkt till ditt projekt så att du har full kontroll över dem. Alla kommandon förutom `eject` kommer fortfarande att fungera, men de kommer att peka på de kopierade skripten så att du kan justera dem. Vid det här laget är du på egen hand.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Du behöver inte använda `eject` alls. Den kuraterade uppsättningen av funktioner är lämplig för små och medelstora distributioner, och du bör inte känna dig skyldig att använda den här funktionen. Men vi förstår att verktyget inte skulle vara användbart om du inte kunde anpassa det när du är redo.
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+# WCAG
+## Perceptibilitet
+Användare kan uppfatta informationen då appen använder tydliga och kontrastrika färgval som uppfyller kontrastförhållandet på minst 4.5:1, vilket gör text och användargränssnittselement lättlästa även för personer med synnedsättning.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Användbarhet
+Appen är enkel att navigera och använda, med konsekvent och tydlig navigeringsstruktur som gör det möjligt för användare, inklusive dem som använder tangentbordsnavigering, att enkelt interagera med appens funktioner.
+Interaktiva element som knappar är tillräckligt stora och har tydlig indikering när de är fokuserade eller aktiverade, vilket hjälper användare med motoriska funktionsnedsättningar.
+
+## Förståelighet
+Appen använder enkel och klar text som är lätt att förstå. Gränssnittet är intuitivt, med konsekventa svar på användarinteraktioner, vilket minimerar risken för förvirring eller misstag.
