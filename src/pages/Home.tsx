@@ -16,7 +16,6 @@ interface Parameter {
 const Home = () => {
   const weatherContext = useContext(WeatherDataContext);
   const coordinateContext = useContext(CoordinateDataContext);
-  console.log(coordinateContext, "coordinateContext in home");
 
   const coordinates = {
     latitude: coordinateContext?.coordinateData.latitude || 62.38,

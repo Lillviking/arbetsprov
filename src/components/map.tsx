@@ -19,7 +19,6 @@ export const Map = () => {
         try {
             const response = await fetch(url);
             const data = await response.json();
-            console.log(data, "data");
 
             const cityName = data.address.city || data.address.town || 'Unknown location';
             coordinates.name = cityName; // Lägg till namnet på staden till koordinaterna
@@ -27,8 +26,6 @@ export const Map = () => {
             console.error('Error fetching reverse geocode data:', error);
             coordinates.name = 'Error retrieving location'; // Hantera fel
         }
-
-        console.log(lat, lng, "lat, lng");
 
         coordinateDataContext?.setCoordinateData(coordinates);
 
